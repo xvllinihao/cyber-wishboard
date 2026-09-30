@@ -42,7 +42,8 @@
     "contentLabel": "心愿详情 / Prompt",
     "contentPlaceholder": "描述你的想法，或者直接贴上完整的 prompt……",
     "submit": "发布心愿",
-    "submitting": "发布中……"
+    "submitting": "发布中……",
+    "imagesLabel": "配图（可选）"
   },
   "comments": {
     "heading": "评论区",
@@ -70,7 +71,8 @@
     "checkEmail": "注册成功！请去邮箱点确认链接，然后回来登录。",
     "invalidCredentials": "邮箱或密码不对。",
     "passwordTooShort": "密码至少 6 位。",
-    "usernameInvalid": "昵称需要 2 到 32 个字。"
+    "usernameInvalid": "昵称需要 2 到 32 个字。",
+    "captchaFailed": "人机验证没通过，请重试。"
   },
   "me": {
     "heading": "我的地盘",
@@ -85,9 +87,23 @@
   "errors": {
     "generic": "出错了，请稍后再试。",
     "required": "请填写这一项。",
-    "invalidLink": "链接需要以 http:// 或 https:// 开头。"
+    "invalidLink": "链接需要以 http:// 或 https:// 开头。",
+    "flagged": "内容没有通过审核（可能涉及色情、暴力或仇恨），请修改后再发。"
   },
   "time": {
     "justNow": "刚刚"
+  },
+  "images": {
+    "add": "添加图片",
+    "remove": "删除图片",
+    "hint": "最多 {max} 张，会自动压缩。",
+    "uploadFailed": "图片上传失败，请重试。"
+  },
+  "report": {
+    "label": "举报",
+    "confirm": "确定举报这条内容吗？被 3 个人举报后会自动隐藏。",
+    "done": "已举报，谢谢。",
+    "duplicate": "你已经举报过了。",
+    "failed": "举报失败，请稍后再试。"
   }
 }
