@@ -1,36 +1,25 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# 愿望实现机 · Wish Machine
 
-## Getting Started
+赛博讨口子：缺 token 的人挂出 idea / prompt，token 菩萨帮忙实现，把作品链接留在评论区。
 
-First, run the development server:
+Next.js 16 (App Router) · Supabase (Auth + Postgres + RLS) · Tailwind CSS 4 + shadcn/ui 风格组件 · next-intl（中文 / English）
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## 本地开发
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+1. 在 Supabase 新建项目，打开 SQL Editor，执行 `supabase/migrations/20260930000000_init.sql`。
+   （或使用 Supabase CLI：`supabase link` 后 `supabase db push`。）
+2. 复制 `.env.example` 为 `.env.local`，填入 Project Settings → API 里的 URL 和 publishable（anon）key。
+3. `npm install && npm run dev`
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## 部署到 Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- 导入仓库，在 Project Settings → Environment Variables 添加 `NEXT_PUBLIC_SUPABASE_URL` 和 `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY`。
+- 在 Supabase → Authentication → URL Configuration 把 Site URL 设成 Vercel 域名，并把 `https://<你的域名>/auth/callback` 加到 Redirect URLs。
 
-## Learn More
+## 功能
 
-To learn more about Next.js, take a look at the following resources:
-
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
-
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+- 邮箱注册 / 登录（注册时填写昵称）
+- 发布心愿（标题 + 详情/prompt），首页瀑布流，按「赞 + 评论数」排序，也可按最新
+- 点赞 / 取消点赞，评论（可附作品链接）
+- 个人中心：我发布的、我点赞的、我评论的
+- 中英文切换（记在 cookie，首次访问按浏览器语言）
