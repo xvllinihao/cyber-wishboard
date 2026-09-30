@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "Wish Machine · Cyber Begging",
+    "description": "Short on tokens? Post your wish and let a token bodhisattva make it real."
+  },
+  "nav": {
+    "brand": "Wish Machine",
+    "newWish": "Make a wish",
+    "me": "Me",
+    "login": "Log in",
+    "signup": "Sign up",
+    "logout": "Log out",
+    "switchLanguage": "中文"
+  },
+  "home": {
+    "title": "Cyber begging",
+    "subtitle": "Short on tokens? Post your idea or prompt. Token bodhisattvas build it and drop the link in the comments.",
+    "sortHot": "Hot",
+    "sortNew": "New",
+    "empty": "No wishes yet. Be the first to beg.",
+    "cta": "Make a wish"
+  },
+  "wish": {
+    "by": "wished by {name}",
+    "anonymous": "anonymous",
+    "likes": "{count, plural, one {# like} other {# likes}}",
+    "comments": "{count, plural, one {# comment} other {# comments}}",
+    "like": "Like",
+    "unlike": "Unlike",
+    "copy": "Copy wish",
+    "copied": "Copied",
+    "delete": "Delete",
+    "deleteConfirm": "Delete this wish?",
+    "notFound": "This wish doesn't exist or was deleted.",
+    "back": "Back to the wall"
+  },
+  "newWish": {
+    "heading": "Make a wish",
+    "description": "Say what you want. An idea is fine, or paste the full prompt.",
+    "titleLabel": "Title",
+    "titlePlaceholder": "e.g. A pomodoro timer that roasts me",
+    "contentLabel": "Details / prompt",
+    "contentPlaceholder": "Describe your idea, or paste the whole prompt…",
+    "submit": "Post wish",
+    "submitting": "Posting…"
+  },
+  "comments": {
+    "heading": "Comments",
+    "placeholder": "Say something, or tell everyone you made it happen…",
+    "linkLabel": "Result link (optional)",
+    "linkPlaceholder": "https://",
+    "submit": "Comment",
+    "submitting": "Sending…",
+    "empty": "No comments yet. The bodhisattvas are on their way.",
+    "loginToComment": "Log in to comment",
+    "result": "See the result",
+    "delete": "Delete"
+  },
+  "auth": {
+    "loginHeading": "Welcome back",
+    "signupHeading": "Join the cyber beggars",
+    "email": "Email",
+    "password": "Password",
+    "username": "Username",
+    "usernamePlaceholder": "2 to 32 characters",
+    "login": "Log in",
+    "signup": "Sign up",
+    "noAccount": "No account yet?",
+    "haveAccount": "Already have an account?",
+    "checkEmail": "You're in! Check your inbox for the confirmation link, then log in.",
+    "invalidCredentials": "Wrong email or password.",
+    "passwordTooShort": "Password must be at least 6 characters.",
+    "usernameInvalid": "Username must be 2 to 32 characters."
+  },
+  "me": {
+    "heading": "My corner",
+    "tabWishes": "My wishes",
+    "tabLikes": "Liked",
+    "tabComments": "Commented",
+    "emptyWishes": "You haven't made any wishes yet.",
+    "emptyLikes": "You haven't liked anything yet.",
+    "emptyComments": "You haven't commented yet.",
+    "onWish": "on “{title}”"
+  },
+  "errors": {
+    "generic": "Something went wrong. Please try again.",
+    "required": "This field is required.",
+    "invalidLink": "Links must start with http:// or https://."
+  },
+  "time": {
+    "justNow": "just now"
+  }
+}

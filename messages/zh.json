@@ -1,0 +1,93 @@
+{
+  "meta": {
+    "title": "愿望实现机 · 赛博讨口子",
+    "description": "缺 token 的人挂出心愿，token 菩萨来替他实现。"
+  },
+  "nav": {
+    "brand": "愿望实现机",
+    "newWish": "挂个心愿",
+    "me": "我的",
+    "login": "登录",
+    "signup": "注册",
+    "logout": "退出",
+    "switchLanguage": "English"
+  },
+  "home": {
+    "title": "赛博讨口子",
+    "subtitle": "缺 token 的人挂出 idea 和 prompt，token 菩萨路过顺手实现，把作品链接留在评论区。",
+    "sortHot": "最热",
+    "sortNew": "最新",
+    "empty": "还没有人许愿，来当第一个讨口子的吧。",
+    "cta": "我也要许愿"
+  },
+  "wish": {
+    "by": "{name} 许愿",
+    "anonymous": "匿名",
+    "likes": "{count} 赞",
+    "comments": "{count} 条评论",
+    "like": "点赞",
+    "unlike": "取消点赞",
+    "copy": "复制心愿",
+    "copied": "已复制",
+    "delete": "删除",
+    "deleteConfirm": "确定删除这个心愿吗？",
+    "notFound": "这个心愿不存在或已被删除。",
+    "back": "返回心愿墙"
+  },
+  "newWish": {
+    "heading": "挂个心愿",
+    "description": "写清楚你想要什么。可以是一个 idea，也可以直接贴 prompt。",
+    "titleLabel": "心愿标题",
+    "titlePlaceholder": "比如：帮我做一个会吐槽的番茄钟",
+    "contentLabel": "心愿详情 / Prompt",
+    "contentPlaceholder": "描述你的想法，或者直接贴上完整的 prompt……",
+    "submit": "发布心愿",
+    "submitting": "发布中……"
+  },
+  "comments": {
+    "heading": "评论区",
+    "placeholder": "说点什么，或者告诉大家你帮忙实现了……",
+    "linkLabel": "作品链接（可选）",
+    "linkPlaceholder": "https://",
+    "submit": "发表评论",
+    "submitting": "发送中……",
+    "empty": "还没有评论，菩萨们还在路上。",
+    "loginToComment": "登录后才能评论",
+    "result": "查看作品",
+    "delete": "删除"
+  },
+  "auth": {
+    "loginHeading": "欢迎回来",
+    "signupHeading": "加入赛博讨口子",
+    "email": "邮箱",
+    "password": "密码",
+    "username": "昵称",
+    "usernamePlaceholder": "2 到 32 个字",
+    "login": "登录",
+    "signup": "注册",
+    "noAccount": "还没有账号？",
+    "haveAccount": "已经有账号了？",
+    "checkEmail": "注册成功！请去邮箱点确认链接，然后回来登录。",
+    "invalidCredentials": "邮箱或密码不对。",
+    "passwordTooShort": "密码至少 6 位。",
+    "usernameInvalid": "昵称需要 2 到 32 个字。"
+  },
+  "me": {
+    "heading": "我的地盘",
+    "tabWishes": "我发布的",
+    "tabLikes": "我点赞的",
+    "tabComments": "我评论的",
+    "emptyWishes": "你还没有许过愿。",
+    "emptyLikes": "你还没有点过赞。",
+    "emptyComments": "你还没有评论过。",
+    "onWish": "评论于「{title}」"
+  },
+  "errors": {
+    "generic": "出错了，请稍后再试。",
+    "required": "请填写这一项。",
+    "invalidLink": "链接需要以 http:// 或 https:// 开头。"
+  },
+  "time": {
+    "justNow": "刚刚"
+  }
+}
