@@ -42,7 +42,8 @@
     "contentLabel": "Details / prompt",
     "contentPlaceholder": "Describe your idea, or paste the whole prompt…",
     "submit": "Post wish",
-    "submitting": "Posting…"
+    "submitting": "Posting…",
+    "imagesLabel": "Images (optional)"
   },
   "comments": {
     "heading": "Comments",
@@ -70,7 +71,8 @@
     "checkEmail": "You're in! Check your inbox for the confirmation link, then log in.",
     "invalidCredentials": "Wrong email or password.",
     "passwordTooShort": "Password must be at least 6 characters.",
-    "usernameInvalid": "Username must be 2 to 32 characters."
+    "usernameInvalid": "Username must be 2 to 32 characters.",
+    "captchaFailed": "The human check failed. Please try again."
   },
   "me": {
     "heading": "My corner",
@@ -85,9 +87,23 @@
   "errors": {
     "generic": "Something went wrong. Please try again.",
     "required": "This field is required.",
-    "invalidLink": "Links must start with http:// or https://."
+    "invalidLink": "Links must start with http:// or https://.",
+    "flagged": "This didn't pass moderation (it may contain sexual, violent or hateful content). Please edit it and try again."
   },
   "time": {
     "justNow": "just now"
+  },
+  "images": {
+    "add": "Add image",
+    "remove": "Remove image",
+    "hint": "Up to {max}. Images are compressed automatically.",
+    "uploadFailed": "Image upload failed. Please try again."
+  },
+  "report": {
+    "label": "Report",
+    "confirm": "Report this? Anything reported by 3 people is hidden automatically.",
+    "done": "Reported. Thanks.",
+    "duplicate": "You already reported this.",
+    "failed": "Couldn't report. Please try again."
   }
 }

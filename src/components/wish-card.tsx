@@ -2,6 +2,7 @@ import { MessageCircle } from "lucide-react";
 import { getFormatter, getTranslations } from "next-intl/server";
 import Link from "next/link";
 import { LikeButton } from "@/components/like-button";
+import { imageUrl } from "@/lib/images";
 import type { Wish } from "@/lib/types";
 
 const tints = [
@@ -33,6 +34,17 @@ export async function WishCard({
 
   return (
     <article className="group mb-4 break-inside-avoid overflow-hidden rounded-xl border bg-card shadow-sm transition-shadow hover:shadow-md">
+      {wish.image_paths.length > 0 && (
+        <Link href={`/wish/${wish.id}`} className="relative block">
+          {/* eslint-disable-next-line @next/next/no-img-element */}
+          <img src={imageUrl(wish.image_paths[0])} alt="" loading="lazy" className="w-full object-cover" />
+          {wish.image_paths.length > 1 && (
+            <span className="absolute top-2 right-2 rounded-full bg-black/60 px-2 py-0.5 text-xs text-white">
+              +{wish.image_paths.length - 1}
+            </span>
+          )}
+        </Link>
+      )}
       <Link href={`/wish/${wish.id}`} className={`block bg-gradient-to-b ${tintFor(wish.id)} to-transparent p-4`}>
         <h2 className="font-semibold leading-snug group-hover:text-primary">{wish.title}</h2>
         <p className="mt-2 line-clamp-[8] whitespace-pre-wrap break-words text-sm text-muted-foreground">

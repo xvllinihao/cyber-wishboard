@@ -5,10 +5,12 @@ import { notFound } from "next/navigation";
 import { deleteComment, deleteWish } from "@/app/actions";
 import { CopyButton } from "@/components/copy-button";
 import { LikeButton } from "@/components/like-button";
+import { ReportButton } from "@/components/report-button";
 import { Button } from "@/components/ui/button";
+import { imageUrl } from "@/lib/images";
 import { likedWishIds } from "@/lib/likes";
 import { getUser } from "@/lib/supabase/server";
-import { WISH_FIELDS, type Wish, type WishComment } from "@/lib/types";
+import { COMMENT_FIELDS, WISH_FIELDS, type Wish, type WishComment } from "@/lib/types";
 import { CommentForm } from "./comment-form";
 
 const UUID = /^[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}$/i;
@@ -25,7 +27,7 @@ export default async function WishPage({ params }: PageProps<"/wish/[id]">) {
     supabase.from("wishes").select(WISH_FIELDS).eq("id", id).maybeSingle(),
     supabase
       .from("comments")
-      .select("id, body, link, created_at, author_id, author:profiles(username)")
+      .select(COMMENT_FIELDS)
       .eq("wish_id", id)
       .order("created_at", { ascending: true }),
   ]);
@@ -57,6 +59,16 @@ export default async function WishPage({ params }: PageProps<"/wish/[id]">) {
         <div className="whitespace-pre-wrap break-words rounded-lg bg-muted/60 p-4 font-mono text-sm leading-relaxed">
           {wish.content}
         </div>
+        {wish.image_paths.length > 0 && (
+          <div className="grid gap-2 sm:grid-cols-2">
+            {wish.image_paths.map((path) => (
+              <a key={path} href={imageUrl(path)} target="_blank" rel="noopener noreferrer">
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img src={imageUrl(path)} alt="" className="w-full rounded-lg border object-cover" />
+              </a>
+            ))}
+          </div>
+        )}
         <footer className="flex flex-wrap items-center gap-2">
           <LikeButton wishId={wish.id} liked={liked} count={wish.like_count} signedIn={!!user} />
           <span className="inline-flex items-center gap-1.5 px-2.5 text-sm text-muted-foreground">
@@ -65,6 +77,7 @@ export default async function WishPage({ params }: PageProps<"/wish/[id]">) {
           </span>
           <span className="ml-auto flex gap-2">
             <CopyButton text={wish.content} />
+            {!isOwner && <ReportButton target="wish" id={wish.id} signedIn={!!user} />}
             {isOwner && (
               <form action={deleteWish.bind(null, wish.id)}>
                 <Button variant="ghost" size="sm" className="text-destructive">
@@ -80,7 +93,7 @@ export default async function WishPage({ params }: PageProps<"/wish/[id]">) {
       <section id="comments" className="space-y-4">
         <h2 className="text-lg font-semibold">{t("comments.heading")}</h2>
         {user ? (
-          <CommentForm wishId={wish.id} />
+          <CommentForm wishId={wish.id} userId={user.id} />
         ) : (
           <Button asChild variant="outline">
             <Link href={`/login?next=/wish/${wish.id}`}>{t("comments.loginToComment")}</Link>
@@ -97,15 +110,30 @@ export default async function WishPage({ params }: PageProps<"/wish/[id]">) {
                   <span className="text-muted-foreground">
                     {format.relativeTime(new Date(comment.created_at))}
                   </span>
-                  {user?.id === comment.author_id && (
+                  {user?.id === comment.author_id ? (
                     <form action={deleteComment.bind(null, comment.id, wish.id)} className="ml-auto">
                       <Button variant="ghost" size="sm" className="h-7 text-muted-foreground">
                         {t("comments.delete")}
                       </Button>
                     </form>
+                  ) : (
+                    <span className="ml-auto">
+                      <ReportButton target="comment" id={comment.id} signedIn={!!user} />
+                    </span>
                   )}
                 </div>
                 <p className="whitespace-pre-wrap break-words text-sm">{comment.body}</p>
+                {comment.image_path && (
+                  <a href={imageUrl(comment.image_path)} target="_blank" rel="noopener noreferrer" className="block w-fit">
+                    {/* eslint-disable-next-line @next/next/no-img-element */}
+                    <img
+                      src={imageUrl(comment.image_path)}
+                      alt=""
+                      loading="lazy"
+                      className="max-h-80 rounded-md border object-contain"
+                    />
+                  </a>
+                )}
                 {comment.link && (
                   <a
                     href={comment.link}
